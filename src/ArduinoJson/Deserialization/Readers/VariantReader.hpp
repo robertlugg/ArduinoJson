@@ -9,15 +9,11 @@
 
 namespace ARDUINOJSON_NAMESPACE {
 
-template <typename TDerived>
-struct Reader<VariantRefBase<TDerived>, void> : Reader<char*, void> {
-  explicit Reader(const VariantRefBase<TDerived>& x)
+template <typename TVariant>
+struct Reader<TVariant, typename enable_if<IsVariant<TVariant>::value>::type>
+    : Reader<char*, void> {
+  explicit Reader(const TVariant& x)
       : Reader<char*, void>(x.template as<const char*>()) {}
 };
 
-template <>
-struct Reader<VariantConstRef, void> : Reader<char*, void> {
-  explicit Reader(VariantConstRef x)
-      : Reader<char*, void>(x.as<const char*>()) {}
-};
 }  // namespace ARDUINOJSON_NAMESPACE
