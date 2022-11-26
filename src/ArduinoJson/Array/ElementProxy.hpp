@@ -17,6 +17,9 @@ class ElementProxy : public VariantRefBase<ElementProxy<TUpstream> >,
   ElementProxy(TUpstream upstream, size_t index)
       : _upstream(upstream), _index(index) {}
 
+  ElementProxy(const ElementProxy& src)
+      : _upstream(src._upstream), _index(src._index) {}
+
   FORCE_INLINE ElementProxy& operator=(const ElementProxy& src) {
     this->set(src);
     return *this;

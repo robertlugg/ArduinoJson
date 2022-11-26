@@ -18,6 +18,9 @@ class MemberProxy
   FORCE_INLINE MemberProxy(TUpstream upstream, TStringRef key)
       : _upstream(upstream), _key(key) {}
 
+  MemberProxy(const MemberProxy& src)
+      : _upstream(src._upstream), _key(src._key) {}
+
   FORCE_INLINE MemberProxy& operator=(const MemberProxy& src) {
     this->set(src);
     return *this;
