@@ -243,15 +243,15 @@ class VariantRefBase : public VariantTag {
   }
 
   FORCE_INLINE MemoryPool* getPool() const {
-    return derived().getPool();
+    return VariantAttorney::getPool(derived());
   }
 
   FORCE_INLINE VariantData* getData() const {
-    return derived().getData();
+    return VariantAttorney::getData(derived());
   }
 
   FORCE_INLINE VariantData* getOrCreateData() const {
-    return derived().getOrCreateData();
+    return VariantAttorney::getOrCreateData(derived());
   }
 
  private:

@@ -12,7 +12,6 @@ template <typename TUpstream>
 class ElementProxy : public VariantRefBase<ElementProxy<TUpstream> >,
                      public VariantOperators<ElementProxy<TUpstream> > {
   friend class VariantAttorney;
-  friend class VariantRefBase<ElementProxy<TUpstream> >;
 
  public:
   ElementProxy(TUpstream upstream, size_t index)

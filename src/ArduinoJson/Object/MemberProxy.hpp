@@ -13,7 +13,6 @@ class MemberProxy
     : public VariantRefBase<MemberProxy<TUpstream, TStringRef> >,
       public VariantOperators<MemberProxy<TUpstream, TStringRef> > {
   friend class VariantAttorney;
-  friend class VariantRefBase<MemberProxy<TUpstream, TStringRef> >;
 
  public:
   FORCE_INLINE MemberProxy(TUpstream upstream, TStringRef key)
